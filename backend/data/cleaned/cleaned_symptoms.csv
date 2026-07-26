@@ -1,0 +1,583 @@
+Animal_Id,Symptom
+A3,Coughing
+A3,Fever
+A3,Labored Breathing
+A3,Nasal Discharge
+A10,Decreased Milk Yield
+A10,Fever
+A10,Lethargy
+A15,Decreased Milk Yield
+A15,Fever
+A15,Lethargy
+A15,Loss of Appetite
+A21,Decreased Milk Yield
+A21,Fever
+A21,Lethargy
+A21,Loss of Appetite
+A25,Decreased Milk Yield
+A25,Fever
+A25,Lethargy
+A25,Nasal Discharge
+A31,Decreased Milk Yield
+A31,Fever
+A31,Lethargy
+A31,Nasal Discharge
+A35,Decreased Milk Yield
+A35,Diarrhea
+A35,Lethargy
+A35,Loss of Appetite
+A39,Decreased Milk Yield
+A39,Diarrhea
+A39,Lethargy
+A39,Loss of Appetite
+A45,Coughing
+A45,Fever
+A45,Labored Breathing
+A45,Nasal Discharge
+A49,Dehydration
+A49,Diarrhea
+A49,Lethargy
+A49,Loss of Appetite
+A53,Coughing
+A53,Decreased Milk Yield
+A53,Fever
+A53,Lethargy
+A57,Dehydration
+A57,Diarrhea
+A57,Lethargy
+A57,Loss of Appetite
+A61,Diarrhea
+A61,Fever
+A61,Lethargy
+A61,Loss of Appetite
+A65,Dehydration
+A65,Diarrhea
+A65,Lethargy
+A65,Loss of Appetite
+A69,Decreased Milk Yield
+A69,Fever
+A69,Lethargy
+A69,Nasal Discharge
+A75,Coughing
+A75,Labored Breathing
+A75,Lethargy
+A75,Nasal Discharge
+A79,Decreased Milk Yield
+A79,Lethargy
+A79,Loss of Appetite
+A79,Weight Loss
+A83,Dehydration
+A83,Diarrhea
+A83,Lethargy
+A83,Loss of Appetite
+A87,Coughing
+A87,Fever
+A87,Lethargy
+A87,Nasal Discharge
+A91,Decreased Milk Yield
+A91,Lethargy
+A91,Loss of Appetite
+A91,Weight Loss
+A95,Dehydration
+A95,Diarrhea
+A95,Lethargy
+A95,Loss of Appetite
+A99,Coughing
+A99,Fever
+A99,Labored Breathing
+A99,Nasal Discharge
+A105,Decreased Milk Yield
+A105,Lethargy
+A105,Loss of Appetite
+A105,Weight Loss
+A107,Coughing
+A107,Fever
+A107,Labored Breathing
+A107,Nasal Discharge
+A108,Dehydration
+A108,Diarrhea
+A108,Lethargy
+A108,Loss of Appetite
+A113,Coughing
+A113,Labored Breathing
+A113,Lethargy
+A113,Nasal Discharge
+A115,Lethargy
+A115,Loss of Appetite
+A115,Reduced Wool Production
+A115,Weight Loss
+A116,Fever
+A116,Lethargy
+A116,Loss of Appetite
+A116,Weight Loss
+A121,Dehydration
+A121,Diarrhea
+A121,Lethargy
+A121,Loss of Appetite
+A123,Coughing
+A123,Labored Breathing
+A123,Loss of Appetite
+A123,Nasal Discharge
+A124,Dehydration
+A124,Diarrhea
+A124,Lethargy
+A124,Loss of Appetite
+A128,Coughing
+A128,Fever
+A128,Labored Breathing
+A128,Nasal Discharge
+A130,Lethargy
+A130,Loss of Appetite
+A130,Reduced Wool Production
+A130,Weight Loss
+A131,Dehydration
+A131,Diarrhea
+A131,Lethargy
+A131,Loss of Appetite
+A136,Coughing
+A136,Fever
+A136,Labored Breathing
+A136,Nasal Discharge
+A138,Lethargy
+A138,Loss of Appetite
+A138,Swollen Joints
+A138,Weight Loss
+A139,Fever
+A139,Loss of Appetite
+A139,Nasal Discharge
+A139,Weight Loss
+A144,Coughing
+A144,Fever
+A144,Loss of Appetite
+A144,Nasal Discharge
+A146,Fever
+A146,Lethargy
+A146,Loss of Appetite
+A146,Swollen Joints
+A147,Dehydration
+A147,Diarrhea
+A147,Lethargy
+A147,Loss of Appetite
+A152,Fever
+A152,Lethargy
+A152,Loss of Appetite
+A152,Weight Loss
+A157,Coughing
+A157,Fever
+A157,Nasal Discharge
+A157,Weight Loss
+A159,Diarrhea
+A159,Lameness
+A159,Loss of Appetite
+A159,Swollen Joints
+A160,Diarrhea
+A160,Fever
+A160,Loss of Appetite
+A160,Vomiting
+A165,Coughing
+A165,Fever
+A165,Lethargy
+A165,Nasal Discharge
+A167,Coughing
+A167,Lethargy
+A167,Loss of Appetite
+A167,Swollen Joints
+A168,Diarrhea
+A168,Fever
+A168,Loss of Appetite
+A168,Vomiting
+A173,Coughing
+A173,Fever
+A173,Lethargy
+A173,Loss of Appetite
+A175,Lethargy
+A175,Loss of Appetite
+A175,Nasal Discharge
+A175,Swollen Joints
+A176,Fever
+A176,Lethargy
+A176,Loss of Appetite
+A176,Vomiting
+A181,Coughing
+A181,Fever
+A181,Lethargy
+A181,Nasal Discharge
+A186,Coughing
+A186,Fever
+A186,Lethargy
+A186,Loss of Appetite
+A188,Coughing
+A188,Lethargy
+A188,Loss of Appetite
+A188,Swollen Joints
+A189,Diarrhea
+A189,Fever
+A189,Loss of Appetite
+A189,Vomiting
+A194,Coughing
+A194,Lethargy
+A194,Loss of Appetite
+A194,Swollen Legs
+A196,Coughing
+A196,Lethargy
+A196,Loss of Appetite
+A196,Swollen Joints
+A197,Fever
+A197,Lethargy
+A197,Loss of Appetite
+A197,Vomiting
+A202,Coughing
+A202,Fever
+A202,Lethargy
+A202,Loss of Appetite
+A204,Coughing
+A204,Fever
+A204,Lethargy
+A204,Loss of Appetite
+A205,Diarrhea
+A205,Fever
+A205,Loss of Appetite
+A205,Vomiting
+A210,Coughing
+A210,Lethargy
+A210,Loss of Appetite
+A210,Swollen Legs
+A214,Coughing
+A214,Fever
+A214,Lethargy
+A214,Loss of Appetite
+A216,Coughing
+A216,Fever
+A216,Lethargy
+A216,Loss of Appetite
+A217,Diarrhea
+A217,Fever
+A217,Loss of Appetite
+A217,Vomiting
+A222,Coughing
+A222,Fever
+A222,Lethargy
+A222,Loss of Appetite
+A224,Coughing
+A224,Lethargy
+A224,Loss of Appetite
+A224,Swollen Joints
+A225,Fever
+A225,Lethargy
+A225,Loss of Appetite
+A225,Vomiting
+A230,Coughing
+A230,Fever
+A230,Lethargy
+A230,Loss of Appetite
+A232,Coughing
+A232,Lethargy
+A232,Loss of Appetite
+A232,Swollen Joints
+A233,Fever
+A233,Lethargy
+A233,Loss of Appetite
+A233,Vomiting
+A238,Coughing
+A238,Fever
+A238,Lethargy
+A238,Loss of Appetite
+A242,Coughing
+A242,Fever
+A242,Lethargy
+A242,Loss of Appetite
+A244,Coughing
+A244,Fever
+A244,Lethargy
+A244,Loss of Appetite
+A245,Fever
+A245,Lethargy
+A245,Loss of Appetite
+A245,Vomiting
+A250,Coughing
+A250,Fever
+A250,Lethargy
+A250,Loss of Appetite
+A252,Coughing
+A252,Lethargy
+A252,Loss of Appetite
+A252,Swollen Joints
+A253,Fever
+A253,Lethargy
+A253,Loss of Appetite
+A253,Vomiting
+A258,Coughing
+A258,Fever
+A258,Lethargy
+A258,Loss of Appetite
+A260,Coughing
+A260,Fever
+A260,Lethargy
+A260,Loss of Appetite
+A261,Diarrhea
+A261,Fever
+A261,Loss of Appetite
+A261,Vomiting
+A266,Coughing
+A266,Fever
+A266,Lethargy
+A266,Loss of Appetite
+A268,Coughing
+A268,Fever
+A268,Lethargy
+A268,Loss of Appetite
+A269,Diarrhea
+A269,Fever
+A269,Lethargy
+A269,Vomiting
+A274,Coughing
+A274,Fever
+A274,Lethargy
+A274,Loss of Appetite
+A276,Coughing
+A276,Fever
+A276,Lethargy
+A276,Loss of Appetite
+A277,Diarrhea
+A277,Fever
+A277,Lethargy
+A277,Vomiting
+A282,Coughing
+A282,Fever
+A282,Lethargy
+A282,Loss of Appetite
+A284,Coughing
+A284,Fever
+A284,Lethargy
+A284,Loss of Appetite
+A285,Diarrhea
+A285,Fever
+A285,Lethargy
+A285,Vomiting
+A293,Coughing
+A293,Fever
+A293,Lethargy
+A293,Loss of Appetite
+A295,Coughing
+A295,Fever
+A295,Lethargy
+A295,Loss of Appetite
+A296,Diarrhea
+A296,Fever
+A296,Lethargy
+A296,Vomiting
+A301,Coughing
+A301,Fever
+A301,Lethargy
+A301,Loss of Appetite
+A303,Coughing
+A303,Fever
+A303,Lethargy
+A303,Loss of Appetite
+A304,Diarrhea
+A304,Fever
+A304,Lethargy
+A304,Vomiting
+A309,Coughing
+A309,Fever
+A309,Lethargy
+A309,Loss of Appetite
+A311,Coughing
+A311,Fever
+A311,Lethargy
+A311,Loss of Appetite
+A312,Diarrhea
+A312,Fever
+A312,Lethargy
+A312,Vomiting
+A317,Coughing
+A317,Fever
+A317,Lethargy
+A317,Loss of Appetite
+A321,Coughing
+A321,Fever
+A321,Lethargy
+A321,Loss of Appetite
+A323,Coughing
+A323,Fever
+A323,Lethargy
+A323,Loss of Appetite
+A324,Diarrhea
+A324,Fever
+A324,Lethargy
+A324,Vomiting
+A329,Coughing
+A329,Fever
+A329,Lethargy
+A329,Loss of Appetite
+A331,Coughing
+A331,Fever
+A331,Lethargy
+A331,Loss of Appetite
+A332,Diarrhea
+A332,Fever
+A332,Lethargy
+A332,Vomiting
+A337,Coughing
+A337,Fever
+A337,Lethargy
+A337,Loss of Appetite
+A339,Coughing
+A339,Fever
+A339,Lethargy
+A339,Loss of Appetite
+A340,Diarrhea
+A340,Fever
+A340,Lethargy
+A340,Vomiting
+A344,Coughing
+A344,Fever
+A344,Lethargy
+A344,Loss of Appetite
+A346,Coughing
+A346,Fever
+A346,Lethargy
+A346,Loss of Appetite
+A347,Diarrhea
+A347,Fever
+A347,Lethargy
+A347,Vomiting
+A352,Coughing
+A352,Fever
+A352,Lethargy
+A352,Loss of Appetite
+A354,Coughing
+A354,Fever
+A354,Lethargy
+A354,Loss of Appetite
+A355,Diarrhea
+A355,Fever
+A355,Lethargy
+A355,Vomiting
+A360,Coughing
+A360,Fever
+A360,Lethargy
+A360,Loss of Appetite
+A362,Coughing
+A362,Fever
+A362,Lethargy
+A362,Loss of Appetite
+A363,Diarrhea
+A363,Fever
+A363,Lethargy
+A363,Vomiting
+A368,Coughing
+A368,Fever
+A368,Lethargy
+A368,Loss of Appetite
+A369,Coughing
+A369,Fever
+A369,Lethargy
+A369,Loss of Appetite
+A370,Diarrhea
+A370,Fever
+A370,Lethargy
+A370,Vomiting
+A373,Coughing
+A373,Fever
+A373,Lethargy
+A373,Loss of Appetite
+A375,Coughing
+A375,Fever
+A375,Lethargy
+A375,Loss of Appetite
+A376,Diarrhea
+A376,Fever
+A376,Lethargy
+A376,Vomiting
+A381,Coughing
+A381,Fever
+A381,Lethargy
+A381,Loss of Appetite
+A383,Coughing
+A383,Fever
+A383,Lethargy
+A383,Loss of Appetite
+A384,Diarrhea
+A384,Fever
+A384,Lethargy
+A384,Vomiting
+A389,Coughing
+A389,Fever
+A389,Lethargy
+A389,Loss of Appetite
+A390,Coughing
+A390,Fever
+A390,Lethargy
+A390,Loss of Appetite
+A391,Coughing
+A391,Fever
+A391,Lethargy
+A391,Loss of Appetite
+A392,Diarrhea
+A392,Fever
+A392,Lethargy
+A392,Vomiting
+A394,Coughing
+A394,Fever
+A394,Lethargy
+A394,Loss of Appetite
+A395,Diarrhea
+A395,Fever
+A395,Lethargy
+A395,Vomiting
+A398,Coughing
+A398,Fever
+A398,Lethargy
+A398,Loss of Appetite
+A399,Diarrhea
+A399,Fever
+A399,Lethargy
+A399,Vomiting
+A404,Coughing
+A404,Fever
+A404,Lethargy
+A404,Loss of Appetite
+A405,Coughing
+A405,Fever
+A405,Lethargy
+A405,Loss of Appetite
+A406,Coughing
+A406,Fever
+A406,Lethargy
+A406,Loss of Appetite
+A407,Diarrhea
+A407,Fever
+A407,Lethargy
+A407,Vomiting
+A409,Coughing
+A409,Fever
+A409,Lethargy
+A409,Loss of Appetite
+A410,Coughing
+A410,Fever
+A410,Lethargy
+A410,Loss of Appetite
+A411,Diarrhea
+A411,Fever
+A411,Lethargy
+A411,Vomiting
+A413,Diarrhea
+A413,Fever
+A413,Lethargy
+A413,Vomiting
+A415,Coughing
+A415,Fever
+A415,Lethargy
+A415,Loss of Appetite
+A416,Coughing
+A416,Fever
+A416,Lethargy
+A416,Loss of Appetite
+A424,Coughing
+A424,Fever
+A424,Labored Breathing
+A424,Nasal Discharge
+A431,Decreased Milk Yield
+A431,Fever
+A431,Lethargy

@@ -1,0 +1,55 @@
+// These match the cleaned data vocab.json exactly.
+// If the data changes, re-run clean_data.py and update these.
+
+export const SYMPTOMS = [
+  'Coughing',
+  'Decreased Milk Yield',
+  'Dehydration',
+  'Diarrhea',
+  'Fever',
+  'Labored Breathing',
+  'Lameness',
+  'Lethargy',
+  'Loss of Appetite',
+  'Nasal Discharge',
+  'Reduced Wool Production',
+  'Swollen Joints',
+  'Swollen Legs',
+  'Vomiting',
+  'Weight Loss',
+];
+
+export const ANIMAL_TYPES = ['Cow', 'Goat', 'Sheep'];
+
+export const DISEASES = [
+  'Bluetongue',
+  'Bovine Influenza',
+  'Bovine Leukemia Virus',
+  'Bovine Parainfluenza',
+  'Bovine Pneumonia',
+  'Bovine Respiratory Disease',
+  'Bovine Respiratory Syncytial Virus',
+  'Bovine Tuberculosis',
+  'Bovine Viral Diarrhea',
+  'Caprine Arthritis Encephalitis',
+  'Caprine Pleuropneumonia',
+  'Caprine Respiratory Disease',
+  'Caseous Lymphadenitis',
+  'Chlamydia in Sheep',
+  'Coccidiosis',
+  'Contagious Abortion',
+  'Contagious Ecthyma',
+  'Cryptosporidiosis',
+  'Foot and Mouth Disease',
+  'Footrot',
+  'Gastrointestinal Infection',
+  'Giardiasis',
+  'Goat Pox',
+  "Johne's Disease",
+  'Maedi-Visna',
+  'Mastitis',
+  'Pasteurellosis',
+  'Pneumonia',
+  'Salmonellosis',
+  'Scrapie',
+];

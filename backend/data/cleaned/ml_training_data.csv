@@ -1,0 +1,147 @@
+Animal_Id,Animal_Type,Breed,Age,Weight,sym_Coughing,sym_Decreased Milk Yield,sym_Dehydration,sym_Diarrhea,sym_Fever,sym_Labored Breathing,sym_Lameness,sym_Lethargy,sym_Loss of Appetite,sym_Nasal Discharge,sym_Reduced Wool Production,sym_Swollen Joints,sym_Swollen Legs,sym_Vomiting,sym_Weight Loss,Disease
+A3,Cow,Holstein,3,600.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Foot and Mouth Disease
+A10,Cow,Jersey,4,580.0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,Mastitis
+A15,Cow,Hereford,5,650.0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A21,Cow,Angus,3,590.0,0,1,0,0,1,0,0,1,1,0,0,0,0,0,0,Mastitis
+A25,Cow,Angus,5,700.0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,Bovine Respiratory Disease
+A31,Cow,Hereford,3,650.0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,Mastitis
+A35,Cow,Holstein,4,580.0,0,1,0,1,0,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A39,Cow,Jersey,3,620.0,0,1,0,1,0,0,0,1,1,0,0,0,0,0,0,Salmonellosis
+A45,Cow,Angus,6,600.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Bovine Respiratory Disease
+A49,Cow,Hereford,3,570.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Bovine Viral Diarrhea
+A53,Cow,Brahman,7,620.0,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,Mastitis
+A57,Cow,Limousin,2,550.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Cryptosporidiosis
+A61,Cow,Red Angus,5,620.0,0,0,0,1,1,0,0,1,1,0,0,0,0,0,0,Bovine Leukemia Virus
+A65,Cow,Guernsey,4,590.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Coccidiosis
+A69,Cow,Jersey,6,600.0,0,1,0,0,1,0,0,1,0,1,0,0,0,0,0,Bovine Respiratory Syncytial Virus
+A75,Cow,Holstein,7,590.0,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,Bovine Pneumonia
+A79,Cow,Simmental,8,630.0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,Johne's Disease
+A83,Cow,Shorthorn,5,600.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Salmonellosis
+A87,Cow,Brahman,3,570.0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,0,Bovine Respiratory Syncytial Virus
+A91,Cow,Jersey,6,620.0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,Bovine Tuberculosis
+A95,Cow,Brown Swiss,3,580.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Coccidiosis
+A99,Cow,Guernsey,5,610.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Bovine Influenza
+A105,Cow,Limousin,6,620.0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,1,Johne's Disease
+A107,Sheep,Merino,4,75.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Pneumonia
+A108,Goat,Boer,5,68.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Coccidiosis
+A113,Cow,Angus,8,580.0,1,0,0,0,0,1,0,1,0,1,0,0,0,0,0,Bovine Respiratory Disease
+A115,Sheep,Suffolk,3,80.0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,Scrapie
+A116,Goat,Alpine,4,72.0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,Caprine Arthritis Encephalitis
+A121,Cow,Hereford,7,590.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A123,Sheep,Dorper,6,65.0,1,0,0,0,0,1,0,0,1,1,0,0,0,0,0,Pasteurellosis
+A124,Goat,Nubian,3,70.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Giardiasis
+A128,Cow,Jersey,6,570.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Bovine Tuberculosis
+A130,Sheep,Cheviot,5,85.0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,1,Foot and Mouth Disease
+A131,Goat,Toggenburg,7,65.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Coccidiosis
+A136,Cow,Brown Swiss,9,600.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Bovine Respiratory Disease
+A138,Sheep,Romney,6,78.0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,1,Scrapie
+A139,Goat,Kiko,3,75.0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,1,Caprine Respiratory Disease
+A144,Cow,Holstein,7,650.0,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,Bovine Tuberculosis
+A146,Sheep,Lincoln,8,95.0,0,0,0,0,1,0,0,1,1,0,0,1,0,0,0,Footrot
+A147,Goat,LaMancha,5,72.0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,Gastrointestinal Infection
+A152,Cow,Simmental,8,580.0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,Johne's Disease
+A157,Cow,Angus,6,550.0,1,0,0,0,1,0,0,0,0,1,0,0,0,0,1,Bovine Respiratory Disease
+A159,Sheep,Texel,4,85.0,0,0,0,1,0,0,1,0,1,0,0,1,0,0,0,Bluetongue
+A160,Goat,Alpine,5,72.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A165,Cow,Charolais,5,620.0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,0,Bovine Tuberculosis
+A167,Sheep,Suffolk,6,90.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Caseous Lymphadenitis
+A168,Goat,Boer,3,70.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caprine Pleuropneumonia
+A173,Cow,Hereford,7,580.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A175,Sheep,Border Leicester,5,90.0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,Chlamydia in Sheep
+A176,Goat,Nubian,6,60.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Caprine Respiratory Disease
+A181,Cow,Jersey,5,500.0,1,0,0,0,1,0,0,1,0,1,0,0,0,0,0,Bovine Viral Diarrhea
+A186,Cow,Holstein,5,620.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Syncytial Virus
+A188,Sheep,Finnsheep,4,70.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Scrapie
+A189,Goat,Saanen,5,65.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caprine Pleuropneumonia
+A194,Cow,Guernsey,7,590.0,1,0,0,0,0,0,0,1,1,0,0,0,1,0,0,Bovine Tuberculosis
+A196,Sheep,Leicester Longwool,6,95.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Chlamydia in Sheep
+A197,Goat,Nigerian Dwarf,2,55.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A202,Cow,Aberdeen Angus,6,620.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A204,Sheep,Dorset,3,75.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Foot and Mouth Disease
+A205,Goat,Toggenburg,5,60.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caprine Pleuropneumonia
+A210,Cow,Ayrshire,4,630.0,1,0,0,0,0,0,0,1,1,0,0,0,1,0,0,Bovine Tuberculosis
+A214,Cow,Jersey,5,560.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A216,Sheep,Suffolk,5,90.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Foot and Mouth Disease
+A217,Goat,Boer,6,70.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A222,Cow,Simmental,4,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Syncytial Virus
+A224,Sheep,Karakul,5,80.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Scrapie
+A225,Goat,Angora,6,60.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Caprine Pleuropneumonia
+A230,Cow,Dexter,3,450.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Viral Diarrhea
+A232,Sheep,Corriedale,4,95.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Bluetongue
+A233,Goat,Kiko,5,72.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Caprine Pleuropneumonia
+A238,Cow,Charolais,3,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A242,Cow,Holstein,4,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A244,Sheep,Southdown,6,80.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Contagious Ecthyma
+A245,Goat,Nubian,4,72.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Pneumonia
+A250,Cow,Guernsey,5,450.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Parainfluenza
+A252,Sheep,Tunis,4,95.0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,Bluetongue
+A253,Goat,Boer,6,75.0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A258,Cow,Red Poll,4,680.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A260,Sheep,Romney,5,90.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Maedi-Visna
+A261,Goat,Alpine,5,80.0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,Caseous Lymphadenitis
+A266,Cow,Jersey,6,500.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Viral Diarrhea
+A268,Sheep,Blackface,4,95.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A269,Goat,Saanen,5,85.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A274,Cow,Ayrshire,5,720.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A276,Sheep,Suffolk,4,85.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Contagious Abortion
+A277,Goat,Nubian,6,95.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Pneumonia
+A282,Cow,Belted Galloway,4,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A284,Sheep,Cheviot,3,75.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Foot and Mouth Disease
+A285,Goat,Angora,4,90.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A293,Cow,Holstein,8,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A295,Sheep,Rambouillet,5,90.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A296,Goat,Boer,6,100.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Pneumonia
+A301,Cow,Jersey,6,550.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A303,Sheep,Suffolk,4,110.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A304,Goat,Nubian,7,120.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Foot and Mouth Disease
+A309,Cow,Ayrshire,7,550.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A311,Sheep,Dorper,4,95.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Contagious Ecthyma
+A312,Goat,Saanen,8,110.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A317,Cow,Guernsey,5,600.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A321,Cow,Charolais,8,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A323,Sheep,Blackface,6,95.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Foot and Mouth Disease
+A324,Goat,Kiko,4,90.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A329,Cow,Simmental,7,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A331,Sheep,Texel,5,110.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A332,Goat,Angora,7,100.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Pneumonia
+A337,Cow,Jersey,6,550.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Johne's Disease
+A339,Sheep,Rambouillet,6,90.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A340,Goat,Boer,7,120.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Foot and Mouth Disease
+A344,Cow,Holstein,8,750.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A346,Sheep,Cheviot,4,85.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A347,Goat,Saanen,2,85.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A352,Cow,Angus,5,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A354,Sheep,Suffolk,6,120.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A355,Goat,Toggenburg,5,75.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Pneumonia
+A360,Cow,Limousin,6,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A362,Sheep,Merino,7,90.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A363,Goat,Alpine,6,110.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A368,Cow,Jersey,3,600.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A369,Sheep,Dorset,6,120.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A370,Goat,Nubian,2,80.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A373,Cow,Angus,4,650.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A375,Sheep,Suffolk,7,130.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A376,Goat,Alpine,3,75.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A381,Cow,Charolais,8,750.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A383,Sheep,Hampshire,6,125.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A384,Goat,Nubian,4,80.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Respiratory Disease
+A389,Cow,Holstein,3,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Mastitis
+A390,Cow,Guernsey,3,580.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A391,Sheep,Dorset,4,125.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A392,Goat,Saanen,3,75.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A394,Sheep,Cheviot,3,110.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A395,Goat,Boer,5,85.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Goat Pox
+A398,Cow,Ayrshire,3,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A399,Goat,Kiko,4,70.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A404,Cow,Jersey,2,550.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Mastitis
+A405,Cow,Simmental,4,700.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Respiratory Disease
+A406,Sheep,Suffolk,3,110.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bluetongue
+A407,Goat,Toggenburg,2,70.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A409,Cow,Dexter,2,500.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Bovine Tuberculosis
+A410,Sheep,Cheviot,4,120.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A411,Goat,Alpine,3,75.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Arthritis Encephalitis
+A413,Goat,Nubian,4,80.0,0,0,0,1,1,0,0,1,0,0,0,0,0,1,0,Caprine Respiratory Disease
+A415,Sheep,Dorset,5,150.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Scrapie
+A416,Sheep,Southdown,6,130.0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,Foot and Mouth Disease
+A424,Cow,Holstein,3,600.0,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,Foot and Mouth Disease
+A431,Cow,Jersey,4,580.0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,Mastitis

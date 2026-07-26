@@ -1,0 +1,69 @@
+Animal_Id,Breed,Age,Weight,Milk_Yield(L/day)
+A3,Holstein,3,600,16.2
+A10,Jersey,4,580,5.4
+A15,Hereford,5,650,12.5
+A21,Angus,3,590,19.0
+A25,Angus,5,700,15.8
+A31,Hereford,3,650,14.3
+A35,Holstein,4,580,11.7
+A39,Jersey,3,620,17.0
+A45,Angus,6,600,12.4
+A49,Hereford,3,570,14.6
+A53,Brahman,7,620,14.9
+A57,Limousin,2,550,9.7
+A61,Red Angus,5,620,15.2
+A65,Guernsey,4,590,14.6
+A69,Jersey,6,600,7.0
+A75,Holstein,7,590,16.1
+A79,Simmental,8,630,13.2
+A83,Shorthorn,5,600,17.4
+A87,Brahman,3,570,7.0
+A91,Jersey,6,620,15.3
+A95,Brown Swiss,3,580,18.8
+A99,Guernsey,5,610,14.2
+A105,Limousin,6,620,6.3
+A113,Angus,8,580,6.0
+A121,Hereford,7,590,16.5
+A128,Jersey,6,570,5.7
+A136,Brown Swiss,9,600,7.0
+A144,Holstein,7,650,6.6
+A152,Simmental,8,580,12.9
+A157,Angus,6,550,7.9
+A165,Charolais,5,620,10.4
+A173,Hereford,7,580,19.5
+A181,Jersey,5,500,6.3
+A186,Holstein,5,620,12.9
+A194,Guernsey,7,590,19.2
+A202,Aberdeen Angus,6,620,9.9
+A210,Ayrshire,4,630,13.6
+A214,Jersey,5,560,11.3
+A222,Simmental,4,650,15.1
+A230,Dexter,3,450,5.5
+A238,Charolais,3,700,12.1
+A242,Holstein,4,700,6.8
+A250,Guernsey,5,450,9.6
+A258,Red Poll,4,680,18.5
+A266,Jersey,6,500,15.2
+A274,Ayrshire,5,720,11.2
+A282,Belted Galloway,4,650,9.7
+A293,Holstein,8,650,17.8
+A301,Jersey,6,550,8.3
+A309,Ayrshire,7,550,10.6
+A317,Guernsey,5,600,14.7
+A321,Charolais,8,700,15.1
+A329,Simmental,7,650,14.0
+A337,Jersey,6,550,8.5
+A344,Holstein,8,750,8.0
+A352,Angus,5,650,8.9
+A360,Limousin,6,650,8.9
+A368,Jersey,3,600,9.9
+A373,Angus,4,650,15.4
+A381,Charolais,8,750,19.2
+A389,Holstein,3,700,7.5
+A390,Guernsey,3,580,5.6
+A398,Ayrshire,3,700,15.6
+A404,Jersey,2,550,13.3
+A405,Simmental,4,700,7.3
+A409,Dexter,2,500,6.7
+A424,Holstein,3,600,12.0
+A431,Jersey,4,580,12.7

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+build/
+
+# Environment / secrets  -- NEVER commit these
+.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Raw source data (large; the cleaned/ outputs are committed instead)
+backend/data/raw/
+
+# NOTE: trained models (backend/models/trained_models/*.pkl) and cleaned data
+# (backend/data/cleaned/*) ARE committed on purpose -- the deployed backend
+# loads them at runtime. They're small (~424 KB) and reproducible from raw data.

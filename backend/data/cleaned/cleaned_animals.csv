@@ -1,0 +1,147 @@
+Animal_Type,Breed,Age,Gender,Weight,Symptom_1,Symptom_2,Symptom_3,Symptom_4,Disease_Prediction,Animal_Id
+Cow,Holstein,3,Female,600.0,Fever,Nasal Discharge,Labored Breathing,Coughing,Foot and Mouth Disease,A3
+Cow,Jersey,4,Female,580.0,Lethargy,Decreased Milk Yield,Fever,,Mastitis,A10
+Cow,Hereford,5,Male,650.0,Fever,Lethargy,Decreased Milk Yield,Loss of Appetite,Bovine Respiratory Disease,A15
+Cow,Angus,3,Female,590.0,Decreased Milk Yield,Fever,Loss of Appetite,Lethargy,Mastitis,A21
+Cow,Angus,5,Female,700.0,Fever,Decreased Milk Yield,Lethargy,Nasal Discharge,Bovine Respiratory Disease,A25
+Cow,Hereford,3,Female,650.0,Lethargy,Fever,Decreased Milk Yield,Nasal Discharge,Mastitis,A31
+Cow,Holstein,4,Female,580.0,Loss of Appetite,Diarrhea,Lethargy,Decreased Milk Yield,Johne's Disease,A35
+Cow,Jersey,3,Male,620.0,Diarrhea,Lethargy,Loss of Appetite,Decreased Milk Yield,Salmonellosis,A39
+Cow,Angus,6,Male,600.0,Coughing,Nasal Discharge,Labored Breathing,Fever,Bovine Respiratory Disease,A45
+Cow,Hereford,3,Female,570.0,Lethargy,Diarrhea,Loss of Appetite,Dehydration,Bovine Viral Diarrhea,A49
+Cow,Brahman,7,Female,620.0,Fever,Coughing,Lethargy,Decreased Milk Yield,Mastitis,A53
+Cow,Limousin,2,Male,550.0,Diarrhea,Lethargy,Loss of Appetite,Dehydration,Cryptosporidiosis,A57
+Cow,Red Angus,5,Female,620.0,Fever,Diarrhea,Lethargy,Loss of Appetite,Bovine Leukemia Virus,A61
+Cow,Guernsey,4,Male,590.0,Loss of Appetite,Lethargy,Diarrhea,Dehydration,Coccidiosis,A65
+Cow,Jersey,6,Female,600.0,Fever,Nasal Discharge,Decreased Milk Yield,Lethargy,Bovine Respiratory Syncytial Virus,A69
+Cow,Holstein,7,Male,590.0,Coughing,Nasal Discharge,Labored Breathing,Lethargy,Bovine Pneumonia,A75
+Cow,Simmental,8,Female,630.0,Loss of Appetite,Weight Loss,Lethargy,Decreased Milk Yield,Johne's Disease,A79
+Cow,Shorthorn,5,Male,600.0,Diarrhea,Dehydration,Lethargy,Loss of Appetite,Salmonellosis,A83
+Cow,Brahman,3,Female,570.0,Fever,Nasal Discharge,Lethargy,Coughing,Bovine Respiratory Syncytial Virus,A87
+Cow,Jersey,6,Male,620.0,Weight Loss,Decreased Milk Yield,Lethargy,Loss of Appetite,Bovine Tuberculosis,A91
+Cow,Brown Swiss,3,Female,580.0,Diarrhea,Dehydration,Loss of Appetite,Lethargy,Coccidiosis,A95
+Cow,Guernsey,5,Male,610.0,Nasal Discharge,Coughing,Labored Breathing,Fever,Bovine Influenza,A99
+Cow,Limousin,6,Female,620.0,Weight Loss,Decreased Milk Yield,Loss of Appetite,Lethargy,Johne's Disease,A105
+Sheep,Merino,4,Male,75.0,Coughing,Labored Breathing,Nasal Discharge,Fever,Pneumonia,A107
+Goat,Boer,5,Female,68.0,Diarrhea,Dehydration,Lethargy,Loss of Appetite,Coccidiosis,A108
+Cow,Angus,8,Male,580.0,Coughing,Labored Breathing,Lethargy,Nasal Discharge,Bovine Respiratory Disease,A113
+Sheep,Suffolk,3,Female,80.0,Weight Loss,Lethargy,Loss of Appetite,Reduced Wool Production,Scrapie,A115
+Goat,Alpine,4,Male,72.0,Fever,Lethargy,Weight Loss,Loss of Appetite,Caprine Arthritis Encephalitis,A116
+Cow,Hereford,7,Female,590.0,Diarrhea,Dehydration,Lethargy,Loss of Appetite,Johne's Disease,A121
+Sheep,Dorper,6,Male,65.0,Coughing,Labored Breathing,Nasal Discharge,Loss of Appetite,Pasteurellosis,A123
+Goat,Nubian,3,Female,70.0,Diarrhea,Dehydration,Lethargy,Loss of Appetite,Giardiasis,A124
+Cow,Jersey,6,Male,570.0,Coughing,Nasal Discharge,Labored Breathing,Fever,Bovine Tuberculosis,A128
+Sheep,Cheviot,5,Male,85.0,Weight Loss,Reduced Wool Production,Lethargy,Loss of Appetite,Foot and Mouth Disease,A130
+Goat,Toggenburg,7,Female,65.0,Diarrhea,Dehydration,Lethargy,Loss of Appetite,Coccidiosis,A131
+Cow,Brown Swiss,9,Male,600.0,Labored Breathing,Nasal Discharge,Coughing,Fever,Bovine Respiratory Disease,A136
+Sheep,Romney,6,Female,78.0,Weight Loss,Lethargy,Loss of Appetite,Swollen Joints,Scrapie,A138
+Goat,Kiko,3,Male,75.0,Nasal Discharge,Fever,Weight Loss,Loss of Appetite,Caprine Respiratory Disease,A139
+Cow,Holstein,7,Female,650.0,Coughing,Nasal Discharge,Loss of Appetite,Fever,Bovine Tuberculosis,A144
+Sheep,Lincoln,8,Male,95.0,Lethargy,Swollen Joints,Fever,Loss of Appetite,Footrot,A146
+Goat,LaMancha,5,Female,72.0,Diarrhea,Loss of Appetite,Lethargy,Dehydration,Gastrointestinal Infection,A147
+Cow,Simmental,8,Male,580.0,Loss of Appetite,Weight Loss,Fever,Lethargy,Johne's Disease,A152
+Cow,Angus,6,Male,550.0,Coughing,Nasal Discharge,Fever,Weight Loss,Bovine Respiratory Disease,A157
+Sheep,Texel,4,Female,85.0,Lameness,Swollen Joints,Loss of Appetite,Diarrhea,Bluetongue,A159
+Goat,Alpine,5,Male,72.0,Vomiting,Diarrhea,Fever,Loss of Appetite,Caprine Arthritis Encephalitis,A160
+Cow,Charolais,5,Female,620.0,Lethargy,Coughing,Nasal Discharge,Fever,Bovine Tuberculosis,A165
+Sheep,Suffolk,6,Male,90.0,Swollen Joints,Loss of Appetite,Lethargy,Coughing,Caseous Lymphadenitis,A167
+Goat,Boer,3,Female,70.0,Fever,Vomiting,Diarrhea,Loss of Appetite,Caprine Pleuropneumonia,A168
+Cow,Hereford,7,Female,580.0,Loss of Appetite,Fever,Coughing,Lethargy,Johne's Disease,A173
+Sheep,Border Leicester,5,Male,90.0,Lethargy,Nasal Discharge,Swollen Joints,Loss of Appetite,Chlamydia in Sheep,A175
+Goat,Nubian,6,Female,60.0,Vomiting,Fever,Loss of Appetite,Lethargy,Caprine Respiratory Disease,A176
+Cow,Jersey,5,Female,500.0,Coughing,Nasal Discharge,Lethargy,Fever,Bovine Viral Diarrhea,A181
+Cow,Holstein,5,Female,620.0,Coughing,Fever,Loss of Appetite,Lethargy,Bovine Respiratory Syncytial Virus,A186
+Sheep,Finnsheep,4,Male,70.0,Coughing,Lethargy,Loss of Appetite,Swollen Joints,Scrapie,A188
+Goat,Saanen,5,Female,65.0,Vomiting,Fever,Diarrhea,Loss of Appetite,Caprine Pleuropneumonia,A189
+Cow,Guernsey,7,Male,590.0,Coughing,Lethargy,Loss of Appetite,Swollen Legs,Bovine Tuberculosis,A194
+Sheep,Leicester Longwool,6,Male,95.0,Swollen Joints,Loss of Appetite,Coughing,Lethargy,Chlamydia in Sheep,A196
+Goat,Nigerian Dwarf,2,Female,55.0,Vomiting,Fever,Loss of Appetite,Lethargy,Caprine Arthritis Encephalitis,A197
+Cow,Aberdeen Angus,6,Female,620.0,Coughing,Fever,Loss of Appetite,Lethargy,Bovine Respiratory Disease,A202
+Sheep,Dorset,3,Male,75.0,Coughing,Loss of Appetite,Lethargy,Fever,Foot and Mouth Disease,A204
+Goat,Toggenburg,5,Female,60.0,Vomiting,Diarrhea,Loss of Appetite,Fever,Caprine Pleuropneumonia,A205
+Cow,Ayrshire,4,Male,630.0,Coughing,Lethargy,Loss of Appetite,Swollen Legs,Bovine Tuberculosis,A210
+Cow,Jersey,5,Male,560.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A214
+Sheep,Suffolk,5,Female,90.0,Coughing,Lethargy,Loss of Appetite,Fever,Foot and Mouth Disease,A216
+Goat,Boer,6,Male,70.0,Vomiting,Diarrhea,Loss of Appetite,Fever,Caprine Arthritis Encephalitis,A217
+Cow,Simmental,4,Male,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Syncytial Virus,A222
+Sheep,Karakul,5,Male,80.0,Swollen Joints,Coughing,Loss of Appetite,Lethargy,Scrapie,A224
+Goat,Angora,6,Female,60.0,Vomiting,Loss of Appetite,Lethargy,Fever,Caprine Pleuropneumonia,A225
+Cow,Dexter,3,Male,450.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Viral Diarrhea,A230
+Sheep,Corriedale,4,Female,95.0,Swollen Joints,Coughing,Loss of Appetite,Lethargy,Bluetongue,A232
+Goat,Kiko,5,Male,72.0,Vomiting,Loss of Appetite,Lethargy,Fever,Caprine Pleuropneumonia,A233
+Cow,Charolais,3,Male,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A238
+Cow,Holstein,4,Male,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A242
+Sheep,Southdown,6,Female,80.0,Coughing,Loss of Appetite,Lethargy,Fever,Contagious Ecthyma,A244
+Goat,Nubian,4,Male,72.0,Vomiting,Loss of Appetite,Lethargy,Fever,Pneumonia,A245
+Cow,Guernsey,5,Female,450.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Parainfluenza,A250
+Sheep,Tunis,4,Male,95.0,Swollen Joints,Coughing,Loss of Appetite,Lethargy,Bluetongue,A252
+Goat,Boer,6,Female,75.0,Vomiting,Loss of Appetite,Lethargy,Fever,Caprine Arthritis Encephalitis,A253
+Cow,Red Poll,4,Male,680.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A258
+Sheep,Romney,5,Female,90.0,Coughing,Loss of Appetite,Lethargy,Fever,Maedi-Visna,A260
+Goat,Alpine,5,Male,80.0,Vomiting,Diarrhea,Loss of Appetite,Fever,Caseous Lymphadenitis,A261
+Cow,Jersey,6,Female,500.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Viral Diarrhea,A266
+Sheep,Blackface,4,Male,95.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A268
+Goat,Saanen,5,Female,85.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A269
+Cow,Ayrshire,5,Male,720.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A274
+Sheep,Suffolk,4,Male,85.0,Coughing,Loss of Appetite,Lethargy,Fever,Contagious Abortion,A276
+Goat,Nubian,6,Female,95.0,Vomiting,Diarrhea,Lethargy,Fever,Pneumonia,A277
+Cow,Belted Galloway,4,Female,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A282
+Sheep,Cheviot,3,Female,75.0,Coughing,Loss of Appetite,Lethargy,Fever,Foot and Mouth Disease,A284
+Goat,Angora,4,Male,90.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A285
+Cow,Holstein,8,Male,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A293
+Sheep,Rambouillet,5,Female,90.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A295
+Goat,Boer,6,Male,100.0,Vomiting,Diarrhea,Lethargy,Fever,Pneumonia,A296
+Cow,Jersey,6,Female,550.0,Coughing,Loss of Appetite,Lethargy,Fever,Johne's Disease,A301
+Sheep,Suffolk,4,Male,110.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A303
+Goat,Nubian,7,Female,120.0,Vomiting,Diarrhea,Lethargy,Fever,Foot and Mouth Disease,A304
+Cow,Ayrshire,7,Female,550.0,Coughing,Loss of Appetite,Lethargy,Fever,Johne's Disease,A309
+Sheep,Dorper,4,Male,95.0,Coughing,Loss of Appetite,Lethargy,Fever,Contagious Ecthyma,A311
+Goat,Saanen,8,Female,110.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A312
+Cow,Guernsey,5,Female,600.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A317
+Cow,Charolais,8,Male,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A321
+Sheep,Blackface,6,Male,95.0,Coughing,Loss of Appetite,Lethargy,Fever,Foot and Mouth Disease,A323
+Goat,Kiko,4,Female,90.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A324
+Cow,Simmental,7,Female,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A329
+Sheep,Texel,5,Male,110.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A331
+Goat,Angora,7,Female,100.0,Vomiting,Diarrhea,Lethargy,Fever,Pneumonia,A332
+Cow,Jersey,6,Male,550.0,Coughing,Loss of Appetite,Lethargy,Fever,Johne's Disease,A337
+Sheep,Rambouillet,6,Female,90.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A339
+Goat,Boer,7,Female,120.0,Vomiting,Diarrhea,Lethargy,Fever,Foot and Mouth Disease,A340
+Cow,Holstein,8,Female,750.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A344
+Sheep,Cheviot,4,Male,85.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A346
+Goat,Saanen,2,Male,85.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A347
+Cow,Angus,5,Female,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A352
+Sheep,Suffolk,6,Female,120.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A354
+Goat,Toggenburg,5,Female,75.0,Vomiting,Diarrhea,Lethargy,Fever,Pneumonia,A355
+Cow,Limousin,6,Male,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A360
+Sheep,Merino,7,Male,90.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A362
+Goat,Alpine,6,Male,110.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A363
+Cow,Jersey,3,Female,600.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A368
+Sheep,Dorset,6,Male,120.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A369
+Goat,Nubian,2,Female,80.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A370
+Cow,Angus,4,Female,650.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A373
+Sheep,Suffolk,7,Male,130.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A375
+Goat,Alpine,3,Female,75.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A376
+Cow,Charolais,8,Female,750.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A381
+Sheep,Hampshire,6,Male,125.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A383
+Goat,Nubian,4,Male,80.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Respiratory Disease,A384
+Cow,Holstein,3,Male,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Mastitis,A389
+Cow,Guernsey,3,Male,580.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A390
+Sheep,Dorset,4,Male,125.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A391
+Goat,Saanen,3,Female,75.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A392
+Sheep,Cheviot,3,Female,110.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A394
+Goat,Boer,5,Male,85.0,Vomiting,Diarrhea,Lethargy,Fever,Goat Pox,A395
+Cow,Ayrshire,3,Female,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A398
+Goat,Kiko,4,Female,70.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A399
+Cow,Jersey,2,Male,550.0,Coughing,Loss of Appetite,Lethargy,Fever,Mastitis,A404
+Cow,Simmental,4,Female,700.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Respiratory Disease,A405
+Sheep,Suffolk,3,Male,110.0,Coughing,Loss of Appetite,Lethargy,Fever,Bluetongue,A406
+Goat,Toggenburg,2,Female,70.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A407
+Cow,Dexter,2,Male,500.0,Coughing,Loss of Appetite,Lethargy,Fever,Bovine Tuberculosis,A409
+Sheep,Cheviot,4,Female,120.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A410
+Goat,Alpine,3,Male,75.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Arthritis Encephalitis,A411
+Goat,Nubian,4,Female,80.0,Vomiting,Diarrhea,Lethargy,Fever,Caprine Respiratory Disease,A413
+Sheep,Dorset,5,Male,150.0,Coughing,Loss of Appetite,Lethargy,Fever,Scrapie,A415
+Sheep,Southdown,6,Male,130.0,Coughing,Loss of Appetite,Lethargy,Fever,Foot and Mouth Disease,A416
+Cow,Holstein,3,Female,600.0,Fever,Nasal Discharge,Labored Breathing,Coughing,Foot and Mouth Disease,A424
+Cow,Jersey,4,Female,580.0,Lethargy,Decreased Milk Yield,Fever,,Mastitis,A431

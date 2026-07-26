@@ -1,0 +1,168 @@
+Disease,Symptom,Count
+Bluetongue,Coughing,10
+Bluetongue,Diarrhea,1
+Bluetongue,Fever,8
+Bluetongue,Lameness,1
+Bluetongue,Lethargy,10
+Bluetongue,Loss of Appetite,11
+Bluetongue,Swollen Joints,3
+Bovine Influenza,Coughing,1
+Bovine Influenza,Fever,1
+Bovine Influenza,Labored Breathing,1
+Bovine Influenza,Nasal Discharge,1
+Bovine Leukemia Virus,Diarrhea,1
+Bovine Leukemia Virus,Fever,1
+Bovine Leukemia Virus,Lethargy,1
+Bovine Leukemia Virus,Loss of Appetite,1
+Bovine Parainfluenza,Coughing,1
+Bovine Parainfluenza,Fever,1
+Bovine Parainfluenza,Lethargy,1
+Bovine Parainfluenza,Loss of Appetite,1
+Bovine Pneumonia,Coughing,1
+Bovine Pneumonia,Labored Breathing,1
+Bovine Pneumonia,Lethargy,1
+Bovine Pneumonia,Nasal Discharge,1
+Bovine Respiratory Disease,Coughing,15
+Bovine Respiratory Disease,Decreased Milk Yield,2
+Bovine Respiratory Disease,Fever,16
+Bovine Respiratory Disease,Labored Breathing,3
+Bovine Respiratory Disease,Lethargy,14
+Bovine Respiratory Disease,Loss of Appetite,12
+Bovine Respiratory Disease,Nasal Discharge,5
+Bovine Respiratory Disease,Weight Loss,1
+Bovine Respiratory Syncytial Virus,Coughing,3
+Bovine Respiratory Syncytial Virus,Decreased Milk Yield,1
+Bovine Respiratory Syncytial Virus,Fever,4
+Bovine Respiratory Syncytial Virus,Lethargy,4
+Bovine Respiratory Syncytial Virus,Loss of Appetite,2
+Bovine Respiratory Syncytial Virus,Nasal Discharge,2
+Bovine Tuberculosis,Coughing,15
+Bovine Tuberculosis,Decreased Milk Yield,1
+Bovine Tuberculosis,Fever,13
+Bovine Tuberculosis,Labored Breathing,1
+Bovine Tuberculosis,Lethargy,14
+Bovine Tuberculosis,Loss of Appetite,14
+Bovine Tuberculosis,Nasal Discharge,3
+Bovine Tuberculosis,Swollen Legs,2
+Bovine Tuberculosis,Weight Loss,1
+Bovine Viral Diarrhea,Coughing,3
+Bovine Viral Diarrhea,Dehydration,1
+Bovine Viral Diarrhea,Diarrhea,1
+Bovine Viral Diarrhea,Fever,3
+Bovine Viral Diarrhea,Lethargy,4
+Bovine Viral Diarrhea,Loss of Appetite,3
+Bovine Viral Diarrhea,Nasal Discharge,1
+Caprine Arthritis Encephalitis,Diarrhea,14
+Caprine Arthritis Encephalitis,Fever,17
+Caprine Arthritis Encephalitis,Lethargy,15
+Caprine Arthritis Encephalitis,Loss of Appetite,5
+Caprine Arthritis Encephalitis,Vomiting,16
+Caprine Arthritis Encephalitis,Weight Loss,1
+Caprine Pleuropneumonia,Diarrhea,3
+Caprine Pleuropneumonia,Fever,5
+Caprine Pleuropneumonia,Lethargy,2
+Caprine Pleuropneumonia,Loss of Appetite,5
+Caprine Pleuropneumonia,Vomiting,5
+Caprine Respiratory Disease,Diarrhea,2
+Caprine Respiratory Disease,Fever,4
+Caprine Respiratory Disease,Lethargy,3
+Caprine Respiratory Disease,Loss of Appetite,2
+Caprine Respiratory Disease,Nasal Discharge,1
+Caprine Respiratory Disease,Vomiting,3
+Caprine Respiratory Disease,Weight Loss,1
+Caseous Lymphadenitis,Coughing,1
+Caseous Lymphadenitis,Diarrhea,1
+Caseous Lymphadenitis,Fever,1
+Caseous Lymphadenitis,Lethargy,1
+Caseous Lymphadenitis,Loss of Appetite,2
+Caseous Lymphadenitis,Swollen Joints,1
+Caseous Lymphadenitis,Vomiting,1
+Chlamydia in Sheep,Coughing,1
+Chlamydia in Sheep,Lethargy,2
+Chlamydia in Sheep,Loss of Appetite,2
+Chlamydia in Sheep,Nasal Discharge,1
+Chlamydia in Sheep,Swollen Joints,2
+Coccidiosis,Dehydration,4
+Coccidiosis,Diarrhea,4
+Coccidiosis,Lethargy,4
+Coccidiosis,Loss of Appetite,4
+Contagious Abortion,Coughing,1
+Contagious Abortion,Fever,1
+Contagious Abortion,Lethargy,1
+Contagious Abortion,Loss of Appetite,1
+Contagious Ecthyma,Coughing,2
+Contagious Ecthyma,Fever,2
+Contagious Ecthyma,Lethargy,2
+Contagious Ecthyma,Loss of Appetite,2
+Cryptosporidiosis,Dehydration,1
+Cryptosporidiosis,Diarrhea,1
+Cryptosporidiosis,Lethargy,1
+Cryptosporidiosis,Loss of Appetite,1
+Foot and Mouth Disease,Coughing,7
+Foot and Mouth Disease,Diarrhea,2
+Foot and Mouth Disease,Fever,9
+Foot and Mouth Disease,Labored Breathing,2
+Foot and Mouth Disease,Lethargy,8
+Foot and Mouth Disease,Loss of Appetite,6
+Foot and Mouth Disease,Nasal Discharge,2
+Foot and Mouth Disease,Reduced Wool Production,1
+Foot and Mouth Disease,Vomiting,2
+Foot and Mouth Disease,Weight Loss,1
+Footrot,Fever,1
+Footrot,Lethargy,1
+Footrot,Loss of Appetite,1
+Footrot,Swollen Joints,1
+Gastrointestinal Infection,Dehydration,1
+Gastrointestinal Infection,Diarrhea,1
+Gastrointestinal Infection,Lethargy,1
+Gastrointestinal Infection,Loss of Appetite,1
+Giardiasis,Dehydration,1
+Giardiasis,Diarrhea,1
+Giardiasis,Lethargy,1
+Giardiasis,Loss of Appetite,1
+Goat Pox,Diarrhea,1
+Goat Pox,Fever,1
+Goat Pox,Lethargy,1
+Goat Pox,Vomiting,1
+Johne's Disease,Coughing,4
+Johne's Disease,Decreased Milk Yield,3
+Johne's Disease,Dehydration,1
+Johne's Disease,Diarrhea,2
+Johne's Disease,Fever,5
+Johne's Disease,Lethargy,9
+Johne's Disease,Loss of Appetite,9
+Johne's Disease,Weight Loss,3
+Maedi-Visna,Coughing,1
+Maedi-Visna,Fever,1
+Maedi-Visna,Lethargy,1
+Maedi-Visna,Loss of Appetite,1
+Mastitis,Coughing,3
+Mastitis,Decreased Milk Yield,5
+Mastitis,Fever,7
+Mastitis,Lethargy,7
+Mastitis,Loss of Appetite,3
+Mastitis,Nasal Discharge,1
+Pasteurellosis,Coughing,1
+Pasteurellosis,Labored Breathing,1
+Pasteurellosis,Loss of Appetite,1
+Pasteurellosis,Nasal Discharge,1
+Pneumonia,Coughing,1
+Pneumonia,Diarrhea,4
+Pneumonia,Fever,6
+Pneumonia,Labored Breathing,1
+Pneumonia,Lethargy,5
+Pneumonia,Loss of Appetite,1
+Pneumonia,Nasal Discharge,1
+Pneumonia,Vomiting,5
+Salmonellosis,Decreased Milk Yield,1
+Salmonellosis,Dehydration,1
+Salmonellosis,Diarrhea,2
+Salmonellosis,Lethargy,2
+Salmonellosis,Loss of Appetite,2
+Scrapie,Coughing,10
+Scrapie,Fever,8
+Scrapie,Lethargy,12
+Scrapie,Loss of Appetite,12
+Scrapie,Reduced Wool Production,1
+Scrapie,Swollen Joints,3
+Scrapie,Weight Loss,2
