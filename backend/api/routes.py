@@ -253,6 +253,10 @@ def diagnose():
         # ground-truth seed data with live guesses and create phantom Disease
         # nodes (e.g. the guardrail labels). Diagnosis stays read-only.
 
+        # Ask the graph how distinguishable this symptom set is. This is what
+        # turns "confidence 17.6%" into an actual reason.
+        graph_evidence = get_graph_evidence(matched)
+
         return jsonify({
             "disease": top_disease,
             "confidence": round(float(top_conf) * 100, 1),
@@ -264,6 +268,7 @@ def diagnose():
             "unmatchedSymptoms": unmatched,
             "drivingSymptoms": driving,
             "graphInfo": graph_info,
+            "graphEvidence": graph_evidence,
             "disclaimer": "This is AI-assisted decision support only, not a veterinary diagnosis. "
                          "Always consult a qualified veterinarian for treatment decisions."
         })
@@ -271,6 +276,82 @@ def diagnose():
     except Exception as e:
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+
+# ═══════════════════════════════════════════════════════════════
+# GRAPH EVIDENCE
+# ═══════════════════════════════════════════════════════════════
+def get_graph_evidence(symptoms):
+    """
+    Ask the knowledge graph how DISTINGUISHABLE this symptom set is.
+
+    Finds every animal exhibiting all of the given symptoms, and reports which
+    diseases those animals actually have. Three outcomes:
+
+      distinctive : the symptoms point at a single disease
+      ambiguous   : several diseases share this pattern -> symptoms alone
+                    cannot separate them
+      unseen      : no animal in the reference data shows this combination
+
+    This is a genuine Cypher query against Neo4j at request time. It does NOT
+    feed the model — evaluation showed graph-derived features reduced accuracy
+    (see GRAPH_FEATURES.md). It exists to EXPLAIN the model's confidence:
+    "these symptoms match 10 diseases" is a far better reason to defer to a
+    veterinarian than "confidence is 17.6%".
+    """
+    if not symptoms:
+        return None
+
+    try:
+        run_query, _ = get_db()
+        rows = run_query(
+            "MATCH (a:Animal)-[:PREDICTED_WITH]->(d:Disease) "
+            "WITH a, d, [(a)-[:EXHIBITS]->(s:Symptom) | s.name] AS syms "
+            "WHERE all(x IN $symptoms WHERE x IN syms) "
+            "RETURN d.name AS disease, count(DISTINCT a) AS cases "
+            "ORDER BY cases DESC",
+            {"symptoms": list(symptoms)},
+        )
+    except Exception:
+        return None  # graph enrichment is optional; never break diagnosis
+
+    matches = [{"disease": r["disease"], "cases": r["cases"]} for r in rows]
+    total_cases = sum(m["cases"] for m in matches)
+    n = len(matches)
+
+    if n == 0:
+        mode = "unseen"
+        message = (
+            "This combination of symptoms does not appear in the reference data. "
+            "The prediction is extrapolating beyond what it has seen — treat it "
+            "with particular caution."
+        )
+    elif n == 1:
+        mode = "distinctive"
+        only = matches[0]
+        message = (
+            f"This pattern is distinctive: in the knowledge graph it appears only "
+            f"with {only['disease']} ({only['cases']} "
+            f"case{'' if only['cases'] == 1 else 's'})."
+        )
+        if only["cases"] < 3:
+            message += " Very few reference cases, so confidence should stay low."
+    else:
+        mode = "ambiguous"
+        message = (
+            f"These symptoms match {n} different diseases across {total_cases} "
+            f"animals in the knowledge graph. Symptoms alone cannot separate them "
+            f"— veterinary examination is needed to narrow it down."
+        )
+
+    return {
+        "mode": mode,
+        "matchCount": n,
+        "totalCases": total_cases,
+        "matches": matches[:6],
+        "message": message,
+    }
+
 
 
 # ═══════════════════════════════════════════════════════════════

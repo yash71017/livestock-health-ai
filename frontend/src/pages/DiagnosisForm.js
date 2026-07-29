@@ -6,6 +6,7 @@ import {
 import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
 import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import HubOutlinedIcon from '@mui/icons-material/HubOutlined';
 import { animalAPI, diagnosisAPI, vocabAPI } from '../services/api';
 
 const SUCCESS = '#2E7D5B';
@@ -249,6 +250,52 @@ function DiagnosisPage() {
 
                 {/* Signature confidence meter */}
                 <ConfidenceMeter confidence={diagnosis.confidence} />
+
+                {/* Graph evidence — explains WHY the confidence is what it is */}
+                {diagnosis.graphEvidence && (
+                  <Box
+                    sx={{
+                      mt: 2.5, p: 2, borderRadius: '12px',
+                      border: '1px solid',
+                      ...(diagnosis.graphEvidence.mode === 'distinctive'
+                        ? { backgroundColor: 'rgba(46,125,91,.07)', borderColor: 'rgba(46,125,91,.25)' }
+                        : diagnosis.graphEvidence.mode === 'ambiguous'
+                        ? { backgroundColor: 'rgba(199,125,52,.08)', borderColor: 'rgba(199,125,52,.25)' }
+                        : { backgroundColor: 'rgba(27,36,31,.04)', borderColor: 'divider' }),
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: 0.75 }}>
+                      <HubOutlinedIcon sx={{ fontSize: 17, color: 'text.secondary' }} />
+                      <Typography sx={{ fontSize: 12, fontWeight: 700, letterSpacing: '.02em', color: 'text.secondary' }}>
+                        KNOWLEDGE GRAPH EVIDENCE
+                      </Typography>
+                    </Box>
+
+                    <Typography sx={{ fontSize: 13.5, lineHeight: 1.5 }}>
+                      {diagnosis.graphEvidence.message}
+                    </Typography>
+
+                    {diagnosis.graphEvidence.matches?.length > 0 && (
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mt: 1.25 }}>
+                        {diagnosis.graphEvidence.matches.map((m, i) => (
+                          <Chip
+                            key={i}
+                            label={`${m.disease} · ${m.cases}`}
+                            size="small"
+                            variant="outlined"
+                          />
+                        ))}
+                        {diagnosis.graphEvidence.matchCount > diagnosis.graphEvidence.matches.length && (
+                          <Chip
+                            label={`+${diagnosis.graphEvidence.matchCount - diagnosis.graphEvidence.matches.length} more`}
+                            size="small"
+                          />
+                        )}
+                      </Box>
+                    )}
+                  </Box>
+                )}
+
 
                 {/* Top predictions with mini bars */}
                 {diagnosis.allPredictions && diagnosis.allPredictions.length > 0 && (
