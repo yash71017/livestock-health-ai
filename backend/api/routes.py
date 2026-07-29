@@ -304,13 +304,20 @@ def get_graph_evidence(symptoms):
 
     try:
         run_query, _ = get_db()
+        # Count how many of the requested symptoms each animal exhibits, keep
+        # the animals exhibiting ALL of them, then report their diseases.
+        #
+        # Deliberately plain Cypher (no pattern comprehensions) so it behaves
+        # consistently across Cypher versions.
         rows = run_query(
-            "MATCH (a:Animal)-[:PREDICTED_WITH]->(d:Disease) "
-            "WITH a, d, [(a)-[:EXHIBITS]->(s:Symptom) | s.name] AS syms "
-            "WHERE all(x IN $symptoms WHERE x IN syms) "
+            "MATCH (a:Animal)-[:EXHIBITS]->(s:Symptom) "
+            "WHERE s.name IN $symptoms "
+            "WITH a, count(DISTINCT s.name) AS matched "
+            "WHERE matched = $n "
+            "MATCH (a)-[:PREDICTED_WITH]->(d:Disease) "
             "RETURN d.name AS disease, count(DISTINCT a) AS cases "
             "ORDER BY cases DESC",
-            {"symptoms": list(symptoms)},
+            {"symptoms": list(symptoms), "n": len(set(symptoms))},
         )
     except Exception:
         return None  # graph enrichment is optional; never break diagnosis
