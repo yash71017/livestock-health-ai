@@ -162,8 +162,18 @@ def execute_against_neo4j(cypher_text):
         print("Clearing existing data...")
         session.run("MATCH (n) DETACH DELETE n")
 
-    # Execute statements one at a time
-    statements = [s.strip() for s in cypher_text.split(";") if s.strip() and not s.strip().startswith("//")]
+    # Execute statements one at a time.
+    #
+    # NOTE: comments must be stripped BEFORE splitting on ";". Splitting first
+    # produces chunks like "// header\nMERGE (...)" which begin with "//" — a
+    # naive comment filter then discards the first real statement after every
+    # header. That silently dropped one node of each type (and every
+    # relationship depending on them) in an earlier version.
+    code_only = "\n".join(
+        line for line in cypher_text.splitlines()
+        if not line.strip().startswith("//")
+    )
+    statements = [s.strip() for s in code_only.split(";") if s.strip()]
     total = len(statements)
 
     with driver.session() as session:
