@@ -189,19 +189,73 @@ def execute_against_neo4j(cypher_text):
 
     print(f"Done. Executed {total} statements.")
 
-    # Verify
-    with driver.session() as session:
-        result = session.run("MATCH (n) RETURN labels(n)[0] AS label, count(*) AS cnt ORDER BY label")
-        print("\nVerification — node counts:")
-        for record in result:
-            print(f"  {record['label']}: {record['cnt']}")
+    # ── Verification ──
+    # This does NOT just print counts. It compares the graph against the source
+    # data and exits non-zero on any mismatch.
+    #
+    # Why: an earlier version of this script silently dropped one statement
+    # after every comment header, producing a graph with 14 symptoms instead of
+    # 15, 145 animals instead of 146, and 84 missing EXHIBITS relationships.
+    # Nothing raised an error — the counts were simply wrong, printed, and
+    # rationalised away. A seed that quietly under-delivers is worse than one
+    # that crashes.
+    expected = expected_counts()
+    actual = {}
 
-        result = session.run("MATCH ()-[r]->() RETURN type(r) AS rel, count(*) AS cnt ORDER BY rel")
-        print("Relationship counts:")
-        for record in result:
-            print(f"  {record['rel']}: {record['cnt']}")
+    with driver.session() as session:
+        for label in ["Animal", "Disease", "Symptom", "MilkRecord"]:
+            rec = session.run(f"MATCH (n:{label}) RETURN count(n) AS c").single()
+            actual[label] = rec["c"]
+        for rel in ["EXHIBITS", "PREDICTED_WITH", "HAS_SYMPTOM", "HAS_MILK_RECORD"]:
+            rec = session.run(f"MATCH ()-[r:{rel}]->() RETURN count(r) AS c").single()
+            actual[rel] = rec["c"]
 
     driver.close()
+
+    print("\nVerification — graph vs source data")
+    print(f"  {'item':<20}{'expected':>10}{'actual':>10}   status")
+    print("  " + "-" * 50)
+
+    failures = []
+    for key, exp in expected.items():
+        got = actual.get(key, 0)
+        ok = (got == exp)
+        print(f"  {key:<20}{exp:>10}{got:>10}   {'OK' if ok else 'MISMATCH'}")
+        if not ok:
+            failures.append((key, exp, got))
+
+    if failures:
+        print("\n  SEED FAILED — the graph does not match the source data:")
+        for key, exp, got in failures:
+            print(f"    {key}: expected {exp}, got {got} (missing {exp - got})")
+        print("\n  Do not use this graph. Investigate before continuing.")
+        sys.exit(1)
+
+    print("\n  All counts match. Graph is complete.")
+
+
+def expected_counts():
+    """What the graph SHOULD contain, derived from the cleaned source data."""
+    animals = pd.read_csv(os.path.join(DATA_DIR, "cleaned_animals.csv"))
+    symptoms_rel = pd.read_csv(os.path.join(DATA_DIR, "cleaned_symptoms.csv"))
+    disease_sym = pd.read_csv(os.path.join(DATA_DIR, "disease_symptom_map.csv"))
+    milk = pd.read_csv(os.path.join(DATA_DIR, "cleaned_milk.csv"))
+    vocab = json.load(open(os.path.join(DATA_DIR, "vocab.json")))
+
+    # milk rows only link to animals that exist
+    animal_ids = set(animals["Animal_Id"])
+    milk_linked = milk[milk["Animal_Id"].isin(animal_ids)]
+
+    return {
+        "Animal": len(animals),
+        "Disease": len(vocab["diseases"]),
+        "Symptom": len(vocab["symptoms"]),
+        "MilkRecord": len(milk),
+        "EXHIBITS": len(symptoms_rel),
+        "PREDICTED_WITH": animals["Disease_Prediction"].notna().sum(),
+        "HAS_SYMPTOM": len(disease_sym),
+        "HAS_MILK_RECORD": len(milk_linked),
+    }
 
 
 if __name__ == "__main__":
