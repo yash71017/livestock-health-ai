@@ -351,13 +351,84 @@ def get_graph_evidence(symptoms):
             f"— veterinary examination is needed to narrow it down."
         )
 
-    return {
+    evidence = {
         "mode": mode,
         "matchCount": n,
         "totalCases": total_cases,
         "matches": matches[:6],
         "message": message,
     }
+
+    # When the result is ambiguous, work out which ADDITIONAL observation would
+    # split the remaining candidates most effectively.
+    if mode == "ambiguous":
+        evidence["suggestions"] = suggest_next_checks(matches, symptoms)
+
+    return evidence
+
+
+def suggest_next_checks(matches, already_selected, top_n=3):
+    """
+    Differential narrowing: which unobserved symptom best separates the
+    remaining candidate diseases?
+
+    For each symptom not yet selected, the candidates split into those that
+    present with it and those that don't. A symptom shared by ALL candidates
+    (or none) splits nothing and is skipped. The best check leaves the fewest
+    candidates on average — weighting each disease by how many real cases it
+    has, so ruling out a common disease counts for more than a rare one.
+
+    This exists because the evaluation established that symptoms alone cap
+    accuracy at ~40% (see GRAPH_FEATURES.md). Rather than only reporting that
+    dead end, the app can tell the user how to escape it.
+    """
+    if len(matches) < 2:
+        return []
+
+    candidate_names = [m["disease"] for m in matches]
+    cases = {m["disease"]: m["cases"] for m in matches}
+    total = sum(cases.values()) or 1
+
+    try:
+        run_query, _ = get_db()
+        rows = run_query(
+            "MATCH (d:Disease)-[:HAS_SYMPTOM]->(s:Symptom) "
+            "WHERE d.name IN $diseases "
+            "RETURN d.name AS disease, collect(s.name) AS symptoms",
+            {"diseases": candidate_names},
+        )
+    except Exception:
+        return []
+
+    profile = {r["disease"]: set(r["symptoms"]) for r in rows}
+    selected = set(already_selected)
+
+    # Every symptom any candidate presents with, minus those already observed
+    pool = set()
+    for syms in profile.values():
+        pool |= syms
+    pool -= selected
+
+    scored = []
+    for sym in sorted(pool):
+        yes = [d for d in candidate_names if sym in profile.get(d, set())]
+        no = [d for d in candidate_names if sym not in profile.get(d, set())]
+        if not yes or not no:
+            continue  # present in all candidates, or none — splits nothing
+
+        p_yes = sum(cases[d] for d in yes) / total
+        expected = p_yes * len(yes) + (1 - p_yes) * len(no)
+
+        scored.append({
+            "symptom": sym,
+            "ifPresent": len(yes),
+            "ifAbsent": len(no),
+            "expectedRemaining": round(expected, 1),
+            "eliminates": round(len(candidate_names) - expected, 1),
+        })
+
+    scored.sort(key=lambda x: x["expectedRemaining"])
+    return scored[:top_n]
 
 
 

@@ -293,6 +293,48 @@ function DiagnosisPage() {
                         )}
                       </Box>
                     )}
+
+                    {/* Differential narrowing — what to observe next */}
+                    {diagnosis.graphEvidence.suggestions?.length > 0 && (
+                      <Box sx={{ mt: 2, pt: 1.75, borderTop: '1px solid', borderColor: 'rgba(27,36,31,.12)' }}>
+                        <Typography sx={{ fontSize: 12.5, fontWeight: 700, mb: 0.25 }}>
+                          What to check next
+                        </Typography>
+                        <Typography sx={{ fontSize: 12, color: 'text.secondary', mb: 1.25 }}>
+                          Observing one of these would divide the {diagnosis.graphEvidence.matchCount} candidates most effectively.
+                        </Typography>
+
+                        {diagnosis.graphEvidence.suggestions.map((s, i) => (
+                          <Box
+                            key={i}
+                            sx={{
+                              display: 'flex', alignItems: 'center', gap: 1.25,
+                              py: 0.85,
+                              borderBottom: i < diagnosis.graphEvidence.suggestions.length - 1 ? '1px solid' : 'none',
+                              borderColor: 'rgba(27,36,31,.07)',
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                width: 22, height: 22, borderRadius: '6px', flexShrink: 0,
+                                backgroundColor: i === 0 ? 'rgba(46,125,91,.15)' : 'rgba(27,36,31,.06)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontSize: 11, fontWeight: 700,
+                                color: i === 0 ? '#2E7D5B' : 'text.secondary',
+                              }}
+                            >
+                              {i + 1}
+                            </Box>
+                            <Typography sx={{ flex: 1, fontSize: 13.5, fontWeight: i === 0 ? 600 : 400 }}>
+                              {s.symptom}
+                            </Typography>
+                            <Typography sx={{ fontSize: 12, color: 'text.secondary', textAlign: 'right' }}>
+                              narrows to <strong>{s.ifPresent}</strong> or <strong>{s.ifAbsent}</strong>
+                            </Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    )}
                   </Box>
                 )}
 
