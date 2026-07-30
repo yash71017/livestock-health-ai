@@ -39,6 +39,11 @@ export const graphAPI = {
   getGraphData: (type) => api.get('/graph-data', { params: type ? { type } : {} }),
 };
 
+// ── Graph network (disease <-> symptom, for the force graph) ──
+export const networkAPI = {
+  getNetwork: () => api.get('/graph-network'),
+};
+
 // ── Diseases ──
 export const diseaseAPI = {
   getAll: () => api.get('/diseases'),

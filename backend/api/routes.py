@@ -507,6 +507,81 @@ def graph_data():
 # ═══════════════════════════════════════════════════════════════
 # DISEASES
 # ═══════════════════════════════════════════════════════════════
+@api_bp.route("/graph-network", methods=["GET"])
+def graph_network():
+    """
+    The disease <-> symptom network, for force-directed visualisation.
+
+    Deliberately excludes Animal nodes: 146 identical-looking nodes add visual
+    noise without adding meaning. The interesting structure is which diseases
+    share which symptoms — that is what makes the diagnostic ambiguity visible.
+
+    Cypher is kept intentionally simple (no pattern comprehensions) so it
+    behaves consistently across Cypher versions.
+    """
+    try:
+        run_query, _ = get_db()
+
+        edges = run_query(
+            "MATCH (d:Disease)-[r:HAS_SYMPTOM]->(s:Symptom) "
+            "RETURN d.name AS disease, s.name AS symptom, r.count AS weight"
+        )
+
+        # How many animals carry each disease (node size)
+        case_rows = run_query(
+            "MATCH (a:Animal)-[:PREDICTED_WITH]->(d:Disease) "
+            "RETURN d.name AS disease, count(a) AS cases"
+        )
+        cases = {r["disease"]: r["cases"] for r in case_rows}
+
+        # How many animals exhibit each symptom (node size)
+        sym_rows = run_query(
+            "MATCH (a:Animal)-[:EXHIBITS]->(s:Symptom) "
+            "RETURN s.name AS symptom, count(a) AS occurrences"
+        )
+        occurrences = {r["symptom"]: r["occurrences"] for r in sym_rows}
+
+        # Build node list from whatever appears in the edges
+        disease_names = sorted({e["disease"] for e in edges})
+        symptom_names = sorted({e["symptom"] for e in edges})
+
+        nodes = (
+            [{"id": f"d:{n}", "label": n, "type": "disease",
+              "value": cases.get(n, 0)} for n in disease_names]
+            + [{"id": f"s:{n}", "label": n, "type": "symptom",
+                "value": occurrences.get(n, 0)} for n in symptom_names]
+        )
+
+        links = [{
+            "source": f"d:{e['disease']}",
+            "target": f"s:{e['symptom']}",
+            "weight": e["weight"] or 1,
+        } for e in edges]
+
+        # Degree = how many symptoms a disease has, and vice versa.
+        # A symptom shared by many diseases is a poor discriminator.
+        degree = {}
+        for l in links:
+            degree[l["source"]] = degree.get(l["source"], 0) + 1
+            degree[l["target"]] = degree.get(l["target"], 0) + 1
+        for n in nodes:
+            n["degree"] = degree.get(n["id"], 0)
+
+        return jsonify({
+            "nodes": nodes,
+            "links": links,
+            "summary": {
+                "diseases": len(disease_names),
+                "symptoms": len(symptom_names),
+                "connections": len(links),
+            },
+        })
+
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
 @api_bp.route("/diseases", methods=["GET"])
 def get_diseases():
     """List all diseases with symptom counts."""

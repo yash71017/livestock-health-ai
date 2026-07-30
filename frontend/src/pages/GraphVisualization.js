@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import {
   Box, Typography, Card, CardContent, Alert, CircularProgress,
-  Chip, FormControl, InputLabel, Select, MenuItem, Grid, Paper
+  Chip, Grid, Tabs, Tab
 } from '@mui/material';
-import { graphAPI } from '../services/api';
+import { graphAPI, networkAPI } from '../services/api';
+import ForceGraph from '../components/ForceGraph';
 
 function GraphVisualization() {
+  const [tab, setTab] = useState(0);
+
+  // Network view (force graph)
+  const [network, setNetwork] = useState(null);
+  const [netLoading, setNetLoading] = useState(true);
+  const [netError, setNetError] = useState('');
+
+  // Structure view (counts and contents)
   const [graphData, setGraphData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [filterType, setFilterType] = useState('');
+  const [structLoading, setStructLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    graphAPI.getGraphData(filterType || undefined)
+    networkAPI.getNetwork()
+      .then((res) => setNetwork(res.data))
+      .catch(() => setNetError('Could not load the graph network.'))
+      .finally(() => setNetLoading(false));
+
+    graphAPI.getGraphData()
       .then((res) => setGraphData(res.data))
-      .catch(() => setError('Could not load graph data.'))
-      .finally(() => setLoading(false));
-  }, [filterType]);
+      .catch(() => {})
+      .finally(() => setStructLoading(false));
+  }, []);
 
   const nodesByType = {};
   if (graphData?.nodes) {
@@ -28,125 +39,136 @@ function GraphVisualization() {
     });
   }
 
-  const relTypes = {};
-  if (graphData?.links) {
-    graphData.links.forEach((l) => {
-      const t = l.relationship || 'UNKNOWN';
-      relTypes[t] = (relTypes[t] || 0) + 1;
-    });
-  }
+  // Hub symptoms — the ones shared by the most diseases
+  const hubs = network?.nodes
+    ? network.nodes
+        .filter((n) => n.type === 'symptom')
+        .sort((a, b) => b.degree - a.degree)
+    : [];
 
   return (
     <Box>
-
       <Alert severity="info" sx={{ mb: 2 }}>
-        Neo4j-backed graph showing relationships between animals, diseases, and symptoms.
-        This data powers the graph-enriched diagnosis results.
+        Live view of the Neo4j knowledge graph. Diseases connect to the symptoms
+        they present with — the denser the centre, the harder those diseases are
+        to tell apart from symptoms alone.
       </Alert>
 
-      <FormControl sx={{ mb: 3, minWidth: 200 }}>
-        <InputLabel>Filter by Node Type</InputLabel>
-        <Select
-          value={filterType}
-          onChange={(e) => setFilterType(e.target.value)}
-          label="Filter by Node Type"
-        >
-          <MenuItem value="">All (sampled)</MenuItem>
-          <MenuItem value="Animal">Animals</MenuItem>
-          <MenuItem value="Disease">Diseases</MenuItem>
-          <MenuItem value="Symptom">Symptoms</MenuItem>
-          <MenuItem value="MilkRecord">Milk Records</MenuItem>
-        </Select>
-      </FormControl>
+      <Tabs value={tab} onChange={(e, v) => setTab(v)} sx={{ mb: 2 }}>
+        <Tab label="Network" />
+        <Tab label="Contents" />
+      </Tabs>
 
-      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
-
-      {loading ? (
-        <Box display="flex" justifyContent="center" mt={4}>
-          <CircularProgress />
-        </Box>
-      ) : (
-        <Grid container spacing={3}>
-          {/* Summary stats */}
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Graph Summary</Typography>
-                <Typography>Nodes: {graphData?.nodes?.length || 0}</Typography>
-                <Typography>Relationships: {graphData?.links?.length || 0}</Typography>
-
-                <Typography variant="subtitle2" sx={{ mt: 2 }}>
-                  Node Types
-                </Typography>
-                {Object.entries(nodesByType).map(([type, nodes]) => (
-                  <Chip
-                    key={type}
-                    label={`${type}: ${nodes.length}`}
-                    sx={{ m: 0.5 }}
-                    variant="outlined"
-                    color={
-                      type === 'Animal' ? 'primary' :
-                      type === 'Disease' ? 'error' :
-                      type === 'Symptom' ? 'warning' : 'default'
-                    }
-                  />
-                ))}
-
-                <Typography variant="subtitle2" sx={{ mt: 2 }}>
-                  Relationship Types
-                </Typography>
-                {Object.entries(relTypes).map(([type, count]) => (
-                  <Chip
-                    key={type}
-                    label={`${type}: ${count}`}
-                    sx={{ m: 0.5 }}
-                    size="small"
-                    variant="outlined"
-                  />
-                ))}
-              </CardContent>
-            </Card>
-          </Grid>
-
-          {/* Node list */}
+      {/* ── Network view ── */}
+      {tab === 0 && (
+        <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             <Card>
               <CardContent>
-                <Typography variant="h6" gutterBottom>Nodes</Typography>
-                <Box sx={{ maxHeight: 500, overflow: 'auto' }}>
-                  {Object.entries(nodesByType).map(([type, nodes]) => (
-                    <Box key={type} sx={{ mb: 2 }}>
-                      <Typography variant="subtitle2" color="primary" gutterBottom>
-                        {type} ({nodes.length})
-                      </Typography>
-                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                        {nodes.slice(0, 50).map((n) => (
-                          <Chip
-                            key={n.id}
-                            label={n.name}
-                            size="small"
-                            variant="outlined"
-                          />
-                        ))}
-                        {nodes.length > 50 && (
-                          <Chip label={`+${nodes.length - 50} more`} size="small" />
-                        )}
-                      </Box>
-                    </Box>
-                  ))}
-                </Box>
-
-                <Paper sx={{ p: 2, mt: 2, textAlign: 'center', backgroundColor: '#f5f5f5' }}>
-                  <Typography variant="body2" color="textSecondary">
-                    Interactive D3.js force graph visualization planned for Tier 2.
-                    Current view shows graph structure and contents.
-                  </Typography>
-                </Paper>
+                {netLoading ? (
+                  <Box display="flex" justifyContent="center" py={8}>
+                    <CircularProgress />
+                  </Box>
+                ) : netError ? (
+                  <Alert severity="error">{netError}</Alert>
+                ) : (
+                  <ForceGraph data={network} />
+                )}
               </CardContent>
             </Card>
           </Grid>
+
+          <Grid item xs={12} md={4}>
+            <Card sx={{ mb: 2 }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 15, fontWeight: 700, mb: 1.5 }}>
+                  Network
+                </Typography>
+                {network?.summary && (
+                  <>
+                    <Row label="Diseases" value={network.summary.diseases} />
+                    <Row label="Symptoms" value={network.summary.symptoms} />
+                    <Row label="Connections" value={network.summary.connections} />
+                  </>
+                )}
+              </CardContent>
+            </Card>
+
+            {hubs.length > 0 && (
+              <Card>
+                <CardContent>
+                  <Typography sx={{ fontSize: 15, fontWeight: 700, mb: 0.5 }}>
+                    Symptom reach
+                  </Typography>
+                  <Typography sx={{ fontSize: 12.5, color: 'text.secondary', mb: 1.5 }}>
+                    How many diseases each symptom appears in. Widely shared
+                    symptoms carry little diagnostic information.
+                  </Typography>
+                  {hubs.map((h) => (
+                    <Box key={h.id} sx={{ mb: 0.9 }}>
+                      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.3 }}>
+                        <Typography sx={{ fontSize: 12.5 }}>{h.label}</Typography>
+                        <Typography sx={{ fontSize: 12.5, color: 'text.secondary' }}>
+                          {h.degree}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ height: 5, borderRadius: 999, backgroundColor: 'rgba(27,36,31,.08)' }}>
+                        <Box
+                          sx={{
+                            height: '100%', borderRadius: 999,
+                            width: `${(h.degree / (hubs[0]?.degree || 1)) * 100}%`,
+                            backgroundColor: h.degree > 15 ? '#C4893D' : '#3C7A68',
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  ))}
+                </CardContent>
+              </Card>
+            )}
+          </Grid>
         </Grid>
       )}
+
+      {/* ── Contents view ── */}
+      {tab === 1 && (
+        <Card>
+          <CardContent>
+            {structLoading ? (
+              <Box display="flex" justifyContent="center" py={6}>
+                <CircularProgress />
+              </Box>
+            ) : (
+              <Box sx={{ maxHeight: 560, overflow: 'auto' }}>
+                {Object.entries(nodesByType).map(([type, nodes]) => (
+                  <Box key={type} sx={{ mb: 2.5 }}>
+                    <Typography sx={{ fontSize: 13, fontWeight: 700, color: 'primary.main', mb: 1 }}>
+                      {type} ({nodes.length})
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75 }}>
+                      {nodes.slice(0, 60).map((n) => (
+                        <Chip key={n.id} label={n.name} size="small" variant="outlined" />
+                      ))}
+                      {nodes.length > 60 && (
+                        <Chip label={`+${nodes.length - 60} more`} size="small" />
+                      )}
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            )}
+          </CardContent>
+        </Card>
+      )}
+    </Box>
+  );
+}
+
+function Row({ label, value }) {
+  return (
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', py: 0.5 }}>
+      <Typography sx={{ fontSize: 13.5, color: 'text.secondary' }}>{label}</Typography>
+      <Typography sx={{ fontSize: 13.5, fontWeight: 600 }}>{value}</Typography>
     </Box>
   );
 }
