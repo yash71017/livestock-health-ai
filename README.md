@@ -69,7 +69,18 @@ Full detail in [DATA.md](backend/data/DATA.md) and [MODEL.md](backend/models/MOD
 - **Disease model accuracy is ~24%** (5-fold CV) against a 14% majority-class baseline. Better than chance, not reliable. With 146 samples across 15 classes, several diseases have too few examples to learn — those are grouped into a "Rare — Consult Veterinarian" bucket rather than predicted individually.
 - **The milk model barely beats the mean.** MAE 3.80 L/day vs a 3.64 baseline, R² 0.669 on 67 records. Included for completeness; treat the number as a ballpark.
 - **The original design claimed milk *quality* grading** from biochemical parameters (fat, protein, pH, somatic cell count, bacteria). No such data existed in the source. The feature was renamed to **yield estimation** — what the data can actually support.
-- **The graph does not yet feed the model.** Neo4j provides storage, relationship context, and enrichment of results. The classifier consumes a symptom vector only. Adding graph-derived features (symptom co-occurrence, IDF-style symptom specificity, disease similarity) is the next planned step — and will be measured against the current baseline rather than assumed to help.
+- **Graph features were tested and rejected.** Symptom co-occurrence, IDF-style symptom specificity, and novelty scores were computed from the graph and fed to the classifier under leakage-safe cross-validation. They **reduced** accuracy from 24.0% to 19.2% and were not shipped. Investigating why produced the more useful result below. Full write-up: **[GRAPH_FEATURES.md](backend/models/GRAPH_FEATURES.md)**.
+
+- **The real constraint is a 40.4% ceiling.** No model can exceed 40.4% accuracy on this data, because 90% of the animals have symptom sets that appear with more than one disease. `Coughing + Fever + Lethargy + Loss of Appetite` alone occurs 57 times across 13 different labels. The current model captures roughly 59% of the signal that actually exists — the bottleneck is the dataset, not the algorithm.
+
+- **What the graph does instead.** Neo4j provides storage, relationship context, and — at request time — a live Cypher query that explains *why* a prediction is uncertain: "these symptoms match 13 diseases across 57 animals, so symptoms alone cannot separate them." That is a better reason to defer to a veterinarian than a bare confidence percentage.
+
+![Disease–symptom network](docs/screenshot-graph.png)
+
+*The ambiguity, visualised. Most diseases (green) attach to the same four hub
+symptoms (amber): Lethargy, Loss of Appetite, Fever, and Coughing. The genuinely
+discriminating symptoms — Lameness, Swollen Legs — sit at the edges with a single
+connection each. This dense centre is the 40.4% ceiling.*
 
 **This is a decision-support prototype, not a veterinary diagnostic tool.**
 
@@ -159,8 +170,10 @@ Every step is scripted with fixed random seeds. If the Aura instance is deleted 
 
 ## Roadmap
 
-- [ ] Graph-derived features feeding the classifier, measured against the current baseline
-- [ ] Interactive D3 force-graph visualisation
+- [x] Graph-derived features feeding the classifier, measured against the current baseline — *done; they didn't help, and [the report explains why](backend/models/GRAPH_FEATURES.md)*
+- [x] Force-directed visualisation of the disease–symptom network
+- [x] Live graph query explaining prediction uncertainty
+- [ ] Differential narrowing — suggest which additional symptom would best separate the remaining candidates
 - [ ] Real (non-synthetic) training data, if a suitable licensed source can be found
 
 ---
