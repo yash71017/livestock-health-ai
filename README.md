@@ -173,7 +173,7 @@ Every step is scripted with fixed random seeds. If the Aura instance is deleted 
 - [x] Graph-derived features feeding the classifier, measured against the current baseline — *done; they didn't help, and [the report explains why](backend/models/GRAPH_FEATURES.md)*
 - [x] Force-directed visualisation of the disease–symptom network
 - [x] Live graph query explaining prediction uncertainty
-- [ ] Differential narrowing — suggest which additional symptom would best separate the remaining candidates
+- [x] Differential narrowing — suggest which additional symptom would best separate the remaining candidates
 - [ ] Real (non-synthetic) training data, if a suitable licensed source can be found
 
 ---

@@ -257,6 +257,19 @@ def diagnose():
         # turns "confidence 17.6%" into an actual reason.
         graph_evidence = get_graph_evidence(matched)
 
+        # Explain the top-ranked REAL disease. When the guardrail fires,
+        # top_disease becomes "Uncertain — Consult Veterinarian", which has no
+        # coefficients of its own; explaining the leading candidate is more
+        # useful than explaining the fallback label.
+        explain_target = next(
+            (d for d, _ in ranked if d not in GUARDRAIL_LABELS),
+            None,
+        )
+        explanation = (
+            explain_prediction(feature_vec, explain_target, known_symptoms)
+            if explain_target else None
+        )
+
         return jsonify({
             "disease": top_disease,
             "confidence": round(float(top_conf) * 100, 1),
@@ -269,6 +282,7 @@ def diagnose():
             "drivingSymptoms": driving,
             "graphInfo": graph_info,
             "graphEvidence": graph_evidence,
+            "explanation": explanation,
             "disclaimer": "This is AI-assisted decision support only, not a veterinary diagnosis. "
                          "Always consult a qualified veterinarian for treatment decisions."
         })
@@ -276,6 +290,64 @@ def diagnose():
     except Exception as e:
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+
+def explain_prediction(feature_vec, target_class, known_symptoms):
+    """
+    Which symptoms drove THIS prediction, and in which direction?
+
+    The classifier is a LogisticRegression (wrapped in CalibratedClassifierCV).
+    For a linear model, a feature's contribution to a class score is exactly
+    `coefficient x value` — which is precisely what SHAP's LinearExplainer
+    computes under its feature-independence assumption.
+
+    Computing it directly avoids adding the `shap` package, which depends on
+    numba and llvmlite (~100 MB installed) — a real problem on a 512 MB
+    instance that already loads scikit-learn, pandas and numpy.
+
+    Caveat, stated in the UI: these are contributions to the LOGIT. Calibration
+    reshapes the logit into the reported probability, so the values explain the
+    RANKING rather than the exact percentage.
+
+    Returns None if the underlying model is not linear (e.g. if training
+    selected the gradient-boosting alternative), in which case no per-prediction
+    explanation is offered rather than a misleading one.
+    """
+    try:
+        raw = disease_artifact.get("raw_model")
+        if raw is None or not hasattr(raw, "coef_"):
+            return None  # not a linear model — no exact contributions
+
+        classes = list(raw.classes_)
+        if target_class not in classes:
+            return None
+        idx = classes.index(target_class)
+
+        coefs = raw.coef_[idx]
+        contributions = coefs * np.asarray(feature_vec)
+
+        items = []
+        for i, symptom in enumerate(known_symptoms):
+            if feature_vec[i] == 0:
+                continue  # symptom not observed — contributes nothing
+            items.append({
+                "symptom": symptom,
+                "contribution": round(float(contributions[i]), 3),
+                "direction": "supports" if contributions[i] > 0 else "argues against",
+            })
+
+        if not items:
+            return None
+
+        items.sort(key=lambda x: -abs(x["contribution"]))
+        scale = max(abs(i["contribution"]) for i in items) or 1.0
+        for i in items:
+            i["magnitude"] = round(abs(i["contribution"]) / scale, 3)
+
+        return {"forClass": target_class, "factors": items}
+
+    except Exception:
+        return None
 
 
 # ═══════════════════════════════════════════════════════════════

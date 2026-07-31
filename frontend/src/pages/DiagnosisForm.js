@@ -381,6 +381,69 @@ function DiagnosisPage() {
                   </Box>
                 )}
 
+                {/* Why this prediction — per-symptom contributions */}
+                {diagnosis.explanation?.factors?.length > 0 && (
+                  <Box sx={{ mt: 2.5, p: 2, borderRadius: '12px', border: '1px solid', borderColor: 'divider' }}>
+                    <Typography sx={{ fontSize: 12, fontWeight: 700, letterSpacing: '.02em', color: 'text.secondary', mb: 0.25 }}>
+                      WHY THIS PREDICTION
+                    </Typography>
+                    <Typography sx={{ fontSize: 12.5, color: 'text.secondary', mb: 1.5 }}>
+                      How each observed symptom weighs for or against{' '}
+                      <Box component="span" sx={{ fontWeight: 600, color: 'text.primary' }}>
+                        {diagnosis.explanation.forClass}
+                      </Box>
+                      .
+                    </Typography>
+
+                    {diagnosis.explanation.factors.map((f, i) => {
+                      const positive = f.contribution > 0;
+                      return (
+                        <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 1.5, py: 0.7 }}>
+                          <Typography sx={{ width: 140, fontSize: 13, flexShrink: 0 }}>
+                            {f.symptom}
+                          </Typography>
+
+                          {/* Diverging bar: left = against, right = supports */}
+                          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', height: 14 }}>
+                            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', pr: '1px' }}>
+                              {!positive && (
+                                <Box sx={{
+                                  width: `${f.magnitude * 100}%`, height: 8,
+                                  backgroundColor: DANGER, opacity: 0.75,
+                                  borderRadius: '999px 0 0 999px',
+                                }} />
+                              )}
+                            </Box>
+                            <Box sx={{ width: '1px', height: 14, backgroundColor: 'rgba(27,36,31,.25)' }} />
+                            <Box sx={{ flex: 1, pl: '1px' }}>
+                              {positive && (
+                                <Box sx={{
+                                  width: `${f.magnitude * 100}%`, height: 8,
+                                  backgroundColor: SUCCESS, opacity: 0.8,
+                                  borderRadius: '0 999px 999px 0',
+                                }} />
+                              )}
+                            </Box>
+                          </Box>
+
+                          <Typography sx={{
+                            width: 52, textAlign: 'right', fontSize: 12.5,
+                            fontVariantNumeric: 'tabular-nums',
+                            color: positive ? SUCCESS : DANGER, fontWeight: 600,
+                          }}>
+                            {f.contribution > 0 ? '+' : ''}{f.contribution}
+                          </Typography>
+                        </Box>
+                      );
+                    })}
+
+                    <Typography sx={{ fontSize: 11, color: 'text.secondary', mt: 1.25, opacity: 0.8 }}>
+                      Weights come from the model's own coefficients — equivalent to a SHAP
+                      linear explanation. They explain the ranking, not the exact percentage.
+                    </Typography>
+                  </Box>
+                )}
+
                 {/* Disclaimer */}
                 <Alert severity="warning" sx={{ mt: 2.5 }}>
                   <Typography variant="caption">{diagnosis.disclaimer}</Typography>
